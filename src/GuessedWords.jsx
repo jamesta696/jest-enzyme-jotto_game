@@ -5,17 +5,16 @@ const GuessedWords = props => {
     let contents;
     if (props.guessedWords.length === 0) {
         contents = (
-            <span class="alert alert-info" data-test="guessed-instructions">
+            <span className="alert alert-info" data-test="guessed-instructions">
                 Try to guess the secret word!
             </span>
         );
     } else {
         const guessedWordRows = props.guessedWords;
         contents = (
-            <div data-test="guessed-words">
+            <div className="mt-4" data-test="guessed-words">
                 <h3>Guessed Words</h3>
-                <table className="table table-dark">
-                    >
+                <table className="table table-dark table-sm">
                     <thead>
                         <tr>
                             <th>Guessed Words</th>
@@ -23,11 +22,14 @@ const GuessedWords = props => {
                         </tr>
                     </thead>
                     <tbody>
-                        {guessedWordRows.map((guessedRow, index) => {
+                        {guessedWordRows.map(word => {
                             return (
-                                <tr key={index} data-test="guessed-word">
-                                    <td>{guessedRow.guessedWord}</td>
-                                    <td>{guessedRow.letterMatchCount}</td>
+                                <tr
+                                    key={word.guessedWord}
+                                    data-test="guessed-word"
+                                >
+                                    <td>{word.guessedWord}</td>
+                                    <td>{word.letterMatchCount}</td>
                                 </tr>
                             );
                         })}

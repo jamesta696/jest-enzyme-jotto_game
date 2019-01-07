@@ -12,7 +12,10 @@ const Congrats = props => {
     if (props.success) {
         return (
             <div data-test="congrats-component">
-                <span data-test="congrats-message">
+                <span
+                    data-test="congrats-message"
+                    className="alert alert-success"
+                >
                     Congratulations! That's the correct word guessed!
                 </span>
             </div>
